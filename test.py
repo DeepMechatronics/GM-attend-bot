@@ -7,11 +7,11 @@ roll_list=[ "MSM19B001","MSM19B002","MSM19B003","MSM19B004","MSM19B005","MSM19B0
 print(roll_list)
 with open('sample.csv', 'r') as file:
     reader = csv.reader(file)
-       for row in reader:
+    for row in reader:
           fw=row[0].split()[0]
           #print(fw)
           if roll_list[2] == fw:
-          print(row)
+           print(row)
 
 with open('main.csv', 'r') as file:
     reader_m = csv.reader(file)
