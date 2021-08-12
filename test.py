@@ -15,7 +15,7 @@ with open('sample.csv', 'r') as file:
              fw=row[0].split()[0]
              atl.append(fw)
              print(fw)
-         # if roll_list[2] == fw:
+          # if roll_list[2] == fw:
           # print(row)
              #if (fw in roll_list):
              time = row[2] 
