@@ -34,9 +34,21 @@ with open('sample.csv', 'r') as file:
             
 
 with open('main.csv', 'r') as file:
-    reader_m = csv.reader(file)
-     #for row in reader_m:
-          #if row[2].startswith('MSM'):
-            # print(row[2])
+      reader_m = csv.reader(file)
+      for row in reader_m:
+           if row[2].startswith('MSM'):
+              if row[2] in a_list:
+                  print(row[2])
+                  for i in range(len(row)):
+                     if row[i] =='':
+                        row[i]="A"
+                        break
+                  print(row)
+              else:
+                  for i in range(len(row)):
+                     if row[i] =='':
+                        row[i]="P"
+                        break
+                  print(row)   
 
 
