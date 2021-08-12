@@ -10,9 +10,9 @@ with open('sample.csv', 'r') as file:
          print(row)
 
 with open('main.csv', 'r') as file:
-    reader = csv.reader(file)
-    for row in reader:
-        if search_string == row[2]:
-         print(row)
+    reader_m = csv.reader(file)
+    for row in reader_m:
+         if row[2].startswith('MSM'):
+            print(row[2])
 
 
