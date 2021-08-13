@@ -1,5 +1,7 @@
 import csv
+import tempfile
 import time
+from tempfile import NamedTemporaryFile
 
 roll_list=[ "MSM19B001","MSM19B002","MSM19B003","MSM19B004","MSM19B005","MSM19B006","MSM19B008","MSM19B009","MSM19B010","MSM19B011","MSM19B012","MSM19B013","MSM19B014",
 "MSM19B015","MSM19B017","MSM19B018","MSM19B019","MSM19B020","MSM19B021","MSM19B023","MSM19B024","MSM19B025","MSM19B028","MSM19B030","MSM19B031","MSM19B032","MSM19B033",
@@ -7,6 +9,7 @@ roll_list=[ "MSM19B001","MSM19B002","MSM19B003","MSM19B004","MSM19B005","MSM19B0
 atl=[]
 p_list=[]
 a_list=[]
+empty=[]
 with open('sample.csv', 'r') as file:
     reader = csv.reader(file)
          
@@ -35,7 +38,7 @@ with open('sample.csv', 'r') as file:
 
 with open('main.csv', 'r') as file:
       reader_m = csv.reader(file)
-      writer_m = csv.writer(file)
+     
       for row in reader_m:
            if row[2].startswith('MSM'):
               if row[2] in a_list:
@@ -43,13 +46,23 @@ with open('main.csv', 'r') as file:
                   for i in range(len(row)):
                      if row[i] =='':
                         row[i]="A"
+                        
                         break
                   print(row)
+                  
+
               else:
                   for i in range(len(row)):
                      if row[i] =='':
                         row[i]="P"
+                        
                         break
-                  print(row)   
+                  print(row)
+           empty.append(row)         
+print("=========================================")
+print(empty)                  
+with open('main.csv', 'w') as file:
+      writer_m = csv.writer(file)
+      writer_m.writerows(empty)                    
 
 
