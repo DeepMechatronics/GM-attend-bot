@@ -66,7 +66,7 @@ with open('main.csv', 'r') as file:
            empty.append(row)         
 print("=========================================")
 print(empty)                  
-with open('main.csv', 'w') as file:
+with open('main.csv', 'w' , newline='') as file:
       writer_m = csv.writer(file)
       writer_m.writerows(empty)   
 shutil.move(name, "/home/deep/take-attendance/backup/old.csv")                       
