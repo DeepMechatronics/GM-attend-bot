@@ -5,8 +5,13 @@ from tempfile import NamedTemporaryFile
 import glob
 import os
 import shutil
+import ntpath
+
+cwd = os.getcwd() 
+print("Current working directory:")
+print()  
 name=""
-for name in glob.glob('/home/deep/take-attendance/input/*csv'):
+for name in glob.glob(cwd+"/input/*.csv"):
     print(name)
 roll_list=[ "MSM19B001","MSM19B002","MSM19B003","MSM19B004","MSM19B005","MSM19B006","MSM19B008","MSM19B009","MSM19B010","MSM19B011","MSM19B012","MSM19B013","MSM19B014",
 "MSM19B015","MSM19B017","MSM19B018","MSM19B019","MSM19B020","MSM19B021","MSM19B023","MSM19B024","MSM19B025","MSM19B028","MSM19B030","MSM19B031","MSM19B032","MSM19B033",
@@ -69,6 +74,7 @@ print(empty)
 with open('main.csv', 'w' , newline='') as file:
       writer_m = csv.writer(file)
       writer_m.writerows(empty)   
-shutil.move(name, "/home/deep/take-attendance/backup/old.csv")                       
+std=cwd+"/backup/"+ntpath.basename(name) 
+shutil.move(name,std)                       
 
 

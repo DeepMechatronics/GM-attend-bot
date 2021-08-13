@@ -1,2 +1,7 @@
 main.csv
+*.csv
+/backup/*.csv
+/input/*.csv
+backup/old.csv
+
 
