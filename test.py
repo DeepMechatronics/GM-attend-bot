@@ -35,7 +35,7 @@ with open('sample.csv', 'r') as file:
 
 with open('main.csv', 'r') as file:
       reader_m = csv.reader(file)
-      writer_m= csv.writer(file)
+      writer_m = csv.writer(file)
       for row in reader_m:
            if row[2].startswith('MSM'):
               if row[2] in a_list:
